@@ -11,4 +11,5 @@ namespace ExcelEditor
         public string City { get; set; }
         public string SelectedStyle { get; set; }
     }
+
 }

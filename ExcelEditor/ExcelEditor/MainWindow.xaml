@@ -1,23 +1,33 @@
-﻿<Window x:Class="ExcelEditor.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="720" Width="1280">
+        xmlns:local="clr-namespace:ExcelEditor" 
+    x:Class="ExcelEditor.MainWindow"
+        Title="MainWindow" Height="720" Width="1280"
+    WindowStyle="None" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
-        <Style x:Key="InputLabelStyle" TargetType="TextBlock">
+        <Style x:Key="StyleListItemTitleStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="#ff4d4d4d"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+        <Style x:Key="InputLabelStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="28"/>
             <Setter Property="Foreground" Value="#ff4d4d4d"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="0,0,0,0"/>
         </Style>
-        <Style x:Key="InputTextBoxStyle" TargetType="TextBox">
+        <Style x:Key="InputTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="FontSize" Value="28"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="#ff000000"/>
             <Setter Property="Margin" Value="8,8,8,0"/>
         </Style>
-        <Style x:Key="CommonButtonStyle" TargetType="Button">
+        <Style x:Key="CommonButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="32"/>
             <Setter Property="Foreground" Value="#ff000000"/>
             <Setter Property="Height" Value="48"/>
@@ -27,9 +37,92 @@
     </Window.Resources>
 
     <Grid>
+        <!--background-->
         <Image Source="/Assets/PageBackground.png" Stretch="UniformToFill"/>
 
+        <!--style list-->
+        <Grid x:Name="styleListPanel">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-1280"/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            
+            <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,80,0,0" Click="StyleListItem_Click" Tag="1">
+                <StackPanel Background="#80ffffff" Width="220" >
+                    <Image Source="/Assets/StyleThumbnail01.jpg" Stretch="Uniform"/>
+                    <TextBlock Text="地中海式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                </StackPanel>
+            </local:Tile>
+
+            <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,80,0,0" Click="StyleListItem_Click" Tag="2">
+                <StackPanel Background="#80ffffff" Width="220" >
+                    <Image Source="/Assets/StyleThumbnail02.jpg" Stretch="Uniform"/>
+                    <TextBlock Text="法式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                </StackPanel>
+            </local:Tile>
+
+            <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="260,390,0,0" Click="StyleListItem_Click" Tag="3">
+                <StackPanel Background="#80ffffff" Width="220" >
+                    <Image Source="/Assets/StyleThumbnail03.jpg" Stretch="Uniform"/>
+                    <TextBlock Text="现代风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                </StackPanel>
+            </local:Tile>
+
+            <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="560,390,0,0" Click="StyleListItem_Click" Tag="4">
+                <StackPanel Background="#80ffffff" Width="220" >
+                    <Image Source="/Assets/StyleThumbnail04.jpg" Stretch="Uniform"/>
+                    <TextBlock Text="新古典风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                </StackPanel>
+            </local:Tile>
+
+            <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="860,390,0,0" Click="StyleListItem_Click" Tag="5">
+                <StackPanel Background="#80ffffff" Width="220" >
+                    <Image Source="/Assets/StyleThumbnail05.jpg" Stretch="Uniform"/>
+                    <TextBlock Text="新亚洲风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                </StackPanel>
+            </local:Tile>
+
+        </Grid>
+
+        <!--style detail-->
+        <Grid x:Name="styleDetailPanel">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0"/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <local:CoverShow />
+        </Grid>
+
+        <Grid x:Name="confirmPanel">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-1280"/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+        </Grid>
+
+        <!--editor panel-->
         <Grid x:Name="editorPanel" VerticalAlignment="Bottom" Margin="32,0,32,100" RenderTransformOrigin="0.5,0.5" Background="#80ffffff">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-1280"/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="*"/>
@@ -42,14 +135,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0"/>
-                </TransformGroup>
-            </Grid.RenderTransform>
+            
             <TextBlock Grid.Row="0" Grid.Column="0" Text="姓名" Style="{StaticResource InputLabelStyle}"/>
             <TextBox Grid.Row="0" Grid.Column="1" x:Name="ED_CustomerName" Style="{StaticResource InputTextBoxStyle}"/>
 
@@ -79,4 +165,5 @@
 
         </Grid>
     </Grid>
+
 </Window>

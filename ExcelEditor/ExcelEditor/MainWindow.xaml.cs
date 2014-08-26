@@ -20,14 +20,17 @@ using System.Windows.Media.Animation;
 
 namespace ExcelEditor
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : System.Windows.Window
     {
+        #region Property
+
         DataAccess dataAccess;
         Storyboard storyShowEditor, storyHideEditor;
         Customer newCustomer = null;
+
+        #endregion
+
+        #region Lifecycle
 
         public MainWindow()
         {
@@ -50,6 +53,11 @@ namespace ExcelEditor
             ED_CustomerName.Text = string.Empty;
             storyShowEditor.Begin();
         }
+
+        #endregion
+
+        #region Editor Panel
+
 
         private async void editorSave_Click(object sender, RoutedEventArgs e)
         {
@@ -98,6 +106,9 @@ namespace ExcelEditor
         {
         }
 
+
+        #endregion
+
         #region Data
 
         private void Sync()
@@ -105,5 +116,31 @@ namespace ExcelEditor
         }
 
         #endregion
+
+        #region Style List
+
+        private void StyleListItem_Click(object sender, RoutedEventArgs e)
+        {
+            string tag = ((FrameworkElement)sender).Tag.ToString();
+            switch (tag)
+            {
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        #endregion
+
+
     }
 }
