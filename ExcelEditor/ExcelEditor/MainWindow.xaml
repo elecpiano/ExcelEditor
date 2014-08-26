@@ -14,6 +14,13 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="8"/>
         </Style>
+        <Style x:Key="ConfirmTextStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="Foreground" Value="#ff4d4d4d"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
         <Style x:Key="InputLabelStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="28"/>
             <Setter Property="Foreground" Value="#ff4d4d4d"/>
@@ -28,15 +35,66 @@
             <Setter Property="Margin" Value="8,8,8,0"/>
         </Style>
         <Style x:Key="CommonButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontSize" Value="24"/>
             <Setter Property="Foreground" Value="#ff000000"/>
             <Setter Property="Height" Value="48"/>
-            <!--<Setter Property="Width" Value="195"/>-->
+            <Setter Property="Width" Value="195"/>
             <Setter Property="Margin" Value="8,8,8,8"/>
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid x:Name="LayoutRoot">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.3">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <PowerEase EasingMode="EaseInOut"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="VSList"/>
+                <VisualState x:Name="VSDetail">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleListPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleDetailPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="VSEditor">
+                	<Storyboard>
+                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="editorPanel">
+                			<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                		</DoubleAnimationUsingKeyFrames>
+                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleListPanel">
+                			<EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
+                		</DoubleAnimationUsingKeyFrames>
+                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleDetailPanel">
+                			<EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
+                		</DoubleAnimationUsingKeyFrames>
+                	</Storyboard>
+                </VisualState>
+                <VisualState x:Name="VSConfirm">
+                	<Storyboard>
+                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="confirmPanel">
+                			<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                		</DoubleAnimationUsingKeyFrames>
+                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="editorPanel">
+                			<EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
+                		</DoubleAnimationUsingKeyFrames>
+                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleDetailPanel">
+                			<EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
+                		</DoubleAnimationUsingKeyFrames>
+                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleListPanel">
+                			<EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
+                		</DoubleAnimationUsingKeyFrames>
+                	</Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <!--background-->
         <Image Source="/Assets/PageBackground.png" Stretch="UniformToFill"/>
 
@@ -47,10 +105,10 @@
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform/>
-                    <TranslateTransform X="-1280"/>
+                    <TranslateTransform X="-0"/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            
+
             <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,80,0,0" Click="StyleListItem_Click" Tag="1">
                 <StackPanel Background="#80ffffff" Width="220" >
                     <Image Source="/Assets/StyleThumbnail01.jpg" Stretch="Uniform"/>
@@ -95,21 +153,14 @@
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform/>
-                    <TranslateTransform X="-0"/>
+                    <TranslateTransform X="1280"/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <local:CoverShow />
-        </Grid>
-
-        <Grid x:Name="confirmPanel">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="-1280"/>
-                </TransformGroup>
-            </Grid.RenderTransform>
+            <local:CoverShow x:Name="coverShow" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,80,0,0"/>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,100,80">
+                <Button Grid.Column="1" Content="确定" Style="{StaticResource CommonButtonStyle}" Click="styleDetailOK"/>
+                <Button Grid.Column="0" Content="返回" Style="{StaticResource CommonButtonStyle}" Click="styleDetailCancel"/>
+            </StackPanel>
         </Grid>
 
         <!--editor panel-->
@@ -119,10 +170,10 @@
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform/>
-                    <TranslateTransform X="-1280"/>
+                    <TranslateTransform X="1280"/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="180"/>
                 <ColumnDefinition Width="*"/>
@@ -135,7 +186,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            
+
             <TextBlock Grid.Row="0" Grid.Column="0" Text="姓名" Style="{StaticResource InputLabelStyle}"/>
             <TextBox Grid.Row="0" Grid.Column="1" x:Name="ED_CustomerName" Style="{StaticResource InputTextBoxStyle}"/>
 
@@ -164,6 +215,21 @@
             </Grid>
 
         </Grid>
+
+        <!--confirm-->
+        <Grid x:Name="confirmPanel">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="1280"/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <TextBlock Text="恭喜您！您的信息已成功录入！" Style="{StaticResource ConfirmTextStyle}"/>
+            <Button Content="Home" Style="{StaticResource CommonButtonStyle}" Margin="0,160,0,0" Click="home_Click" />
+        </Grid>
+
     </Grid>
 
 </Window>

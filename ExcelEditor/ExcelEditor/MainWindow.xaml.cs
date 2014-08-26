@@ -17,6 +17,7 @@ using System.Data;
 using System.Data.Odbc;
 using System.IO;
 using System.Windows.Media.Animation;
+using Microsoft.Expression.Interactivity.Core;
 
 namespace ExcelEditor
 {
@@ -25,8 +26,9 @@ namespace ExcelEditor
         #region Property
 
         DataAccess dataAccess;
-        Storyboard storyShowEditor, storyHideEditor;
         Customer newCustomer = null;
+        Dictionary<string, InteriorStyle> interiorStyleList;
+        InteriorStyle selectedStyle = null;
 
         #endregion
 
@@ -39,6 +41,7 @@ namespace ExcelEditor
             //storyHideEditor = (Storyboard)this.Resources["storyHideEditorPanel"];
 
             this.Loaded += MainWindow_Loaded;
+            InitData();
         }
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -47,17 +50,99 @@ namespace ExcelEditor
             Sync();
         }
 
-        private void add_Click(object sender, RoutedEventArgs e)
+        #endregion
+
+        #region Data
+
+        private void Sync()
         {
-            ED_WeChatID.Text = string.Empty;
+        }
+
+        private void InitData()
+        {
+            interiorStyleList = new Dictionary<string, InteriorStyle>();
+
+            InteriorStyle item;
+
+            //item 1
+            item = new InteriorStyle();
+            item.ID = "1";
+            item.Title = "地中海式风格";
+            item.Description = "地中海式风格地中海式风格地中海式风格地中海式风格地中海式风格地中海式风格地中海式风格地中海式风格地中海式风格";
+            item.Images = new string[] { 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", };
+            interiorStyleList.Add(item.ID, item);
+
+            //item 2
+            item = new InteriorStyle();
+            item.ID = "2";
+            item.Title = "法式风格";
+            item.Description = "法式风格法式风格法式风格法式风格法式风格法式风格法式风格法式风格法式风格法式风格法式风格法式风格法式风格";
+            item.Images = new string[] { 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", };
+            interiorStyleList.Add(item.ID, item);
+
+            //item 3
+            item = new InteriorStyle();
+            item.ID = "3";
+            item.Title = "现代风格";
+            item.Description = "现代风格现代风格现代风格现代风格现代风格";
+            item.Images = new string[] { 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", };
+            interiorStyleList.Add(item.ID, item);
+
+            //item 4
+            item = new InteriorStyle();
+            item.ID = "4";
+            item.Title = "新古典风格";
+            item.Description = "新古典风格新古典风格新古典风格新古典风格新古典风格新古典风格新古典风格新古典风格新古典风格新古典风格新古典风格新古典风格新古典风格";
+            item.Images = new string[] { 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", };
+            interiorStyleList.Add(item.ID, item);
+
+            //item 5
+            item = new InteriorStyle();
+            item.ID = "5";
+            item.Title = "新亚洲风格";
+            item.Description = "新亚洲风格新亚洲风格新亚洲风格新亚洲风格新亚洲风格新亚洲风格新亚洲风格";
+            item.Images = new string[] { 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", 
+                "/Assets/Style_1_1.jpg", };
+            interiorStyleList.Add(item.ID, item);
+        }
+
+        private void ResetInputFields()
+        {
             ED_CustomerName.Text = string.Empty;
-            storyShowEditor.Begin();
+            ED_Email.Text = string.Empty;
+            ED_Phone.Text = string.Empty;
+            ED_WeChatID.Text = string.Empty;
+            ED_MediaName.Text = string.Empty;
+            ED_City.Text = string.Empty;
         }
 
         #endregion
 
         #region Editor Panel
-
 
         private async void editorSave_Click(object sender, RoutedEventArgs e)
         {
@@ -80,7 +165,7 @@ namespace ExcelEditor
             newCustomer.WeChatID = wechat_id;
             newCustomer.MediaName = media_name;
             newCustomer.City = city;
-            newCustomer.SelectedStyle = "3";
+            newCustomer.SelectedStyle = selectedStyle.ID;
 
             bool successful = false;
 
@@ -97,22 +182,16 @@ namespace ExcelEditor
 
             if (successful)
             {
-                Sync();
-                //storyHideEditor.Begin();
+                //Sync();
+                ExtendedVisualStateManager.GoToElementState(this.LayoutRoot as FrameworkElement, "VSConfirm", true);
+                ResetInputFields();
             }
         }
 
         private void editorCancel_Click(object sender, RoutedEventArgs e)
         {
-        }
-
-
-        #endregion
-
-        #region Data
-
-        private void Sync()
-        {
+            ExtendedVisualStateManager.GoToElementState(this.LayoutRoot as FrameworkElement, "VSDetail", true);
+            ResetInputFields();
         }
 
         #endregion
@@ -122,25 +201,40 @@ namespace ExcelEditor
         private void StyleListItem_Click(object sender, RoutedEventArgs e)
         {
             string tag = ((FrameworkElement)sender).Tag.ToString();
-            switch (tag)
+            if (!interiorStyleList.ContainsKey(tag))
             {
-                case "1":
-                    break;
-                case "2":
-                    break;
-                case "3":
-                    break;
-                case "4":
-                    break;
-                case "5":
-                    break;
-                default:
-                    break;
+                return;
             }
+
+            selectedStyle = interiorStyleList[tag];
+            coverShow.SetDataSource(selectedStyle);
+            ExtendedVisualStateManager.GoToElementState(this.LayoutRoot as FrameworkElement, "VSDetail", true);
         }
 
         #endregion
 
+        #region Style Detail
+
+        private void styleDetailOK(object sender, RoutedEventArgs e)
+        {
+            ExtendedVisualStateManager.GoToElementState(this.LayoutRoot as FrameworkElement, "VSEditor", true);
+        }
+
+        private void styleDetailCancel(object sender, RoutedEventArgs e)
+        {
+            ExtendedVisualStateManager.GoToElementState(this.LayoutRoot as FrameworkElement, "VSList", true);
+        }
+
+        #endregion
+
+        #region Confirm Panel
+
+        private void home_Click(object sender, RoutedEventArgs e)
+        {
+            ExtendedVisualStateManager.GoToElementState(this.LayoutRoot as FrameworkElement, "VSList", true);
+        }
+
+        #endregion
 
     }
 }
