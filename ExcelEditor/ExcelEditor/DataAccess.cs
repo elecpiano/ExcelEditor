@@ -36,8 +36,13 @@ namespace ExcelEditor
                 Customers.Add(new Customer()
                 {
                     //WeChatID = Convert.ToInt32(Reader["wechat_id"]),
-                    WeChatID = Reader["wechat_id"].ToString(),
                     CustomerName = Reader["customer_name"].ToString(),
+                    Email = Reader["email"].ToString(),
+                    Phone = Reader["phone"].ToString(),
+                    WeChatID = Reader["wechat_id"].ToString(),
+                    MediaName = Reader["media_name"].ToString(),
+                    City = Reader["city"].ToString(),
+                    SelectedStyle = Reader["selected_style"].ToString(),
                 });
             }
             Reader.Close();
@@ -51,35 +56,43 @@ namespace ExcelEditor
         /// S2. If the Customer is already exist, then it is taken for Update
         /// </summary>
         /// <param name="customer"></param>
-        public async Task<bool> InsertOrUpdateRowInExcelAsync(Customer customer)
+        public async Task InsertOrUpdateRowInExcelAsync(Customer customer)
         {
             bool IsSave = false;
-            //S1
-            if (!string.IsNullOrEmpty(customer.WeChatID))
-            {
-                await Conn.OpenAsync();
-                Cmd = new OleDbCommand();
-                Cmd.Connection = Conn;
-                Cmd.Parameters.AddWithValue("@wechat_id", customer.WeChatID);
-                Cmd.Parameters.AddWithValue("@customer_name", customer.CustomerName);
-                //S2
-                if (!CheckIfRecordExistAsync(customer).Result)
-                {
-                    Cmd.CommandText = "Insert into [Sheet1$] values (@wechat_id,@customer_name)";
-                }
-                else
-                {
-                    Cmd.CommandText = "Update [Sheet1$] set customer_name=@customer_name where wechat_id=@wechat_id";
-                }
-                int result = await Cmd.ExecuteNonQueryAsync();
-                if (result > 0)
-                {
-                    IsSave = true;
-                }
-                Conn.Close();
-            }
-            return IsSave;
+            await Conn.OpenAsync();
+            Cmd = new OleDbCommand();
+            Cmd.Connection = Conn;
+            Cmd.Parameters.AddWithValue("@customer_name", customer.CustomerName);
+            Cmd.Parameters.AddWithValue("@email", customer.Email);
+            Cmd.Parameters.AddWithValue("@phone", customer.Phone);
+            Cmd.Parameters.AddWithValue("@wechat_id", customer.WeChatID);
+            Cmd.Parameters.AddWithValue("@media_name", customer.MediaName);
+            Cmd.Parameters.AddWithValue("@city", customer.City);
+            Cmd.Parameters.AddWithValue("@selected_style", customer.SelectedStyle);
 
+            if (true)//!CheckIfRecordExistAsync(customer).Result)
+            {
+                Cmd.CommandText = "Insert into [Sheet1$] values (@customer_name, @email, @phone, @wechat_id, @media_name, @city, @selected_style)";
+            }
+            else
+            {
+                Cmd.CommandText =
+@"Update [Sheet1$] set 
+customer_name = @customer_name, 
+email = @email, 
+phone = @phone, 
+wechat_id = @wechat_id, 
+media_name = @media_name, 
+city = @city, 
+selected_style = @selected_style 
+where wechat_id = @wechat_id";
+            }
+            int result = await Cmd.ExecuteNonQueryAsync();
+            if (result > 0)
+            {
+                IsSave = true;
+            }
+            Conn.Close();
         }
 
         /// <summary>
