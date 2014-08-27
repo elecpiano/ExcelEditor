@@ -17,10 +17,17 @@
 
         <Style x:Key="StyleListItemTitleStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Foreground" Value="#ff4d4d4d"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Margin" Value="0,50,0,0"/>
+        </Style>
+
+        <Style x:Key="ItemDescriptionStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Margin" Value="20"/>
         </Style>
 
         <Style x:Key="ConfirmTextStyle" TargetType="{x:Type TextBlock}">
@@ -33,14 +40,22 @@
 
         <Style x:Key="InputLabelStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="28"/>
-            <Setter Property="Foreground" Value="#ff4d4d4d"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Foreground" Value="#ffffffff"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="0,0,0,0"/>
         </Style>
 
+        <Style x:Key="LabelBackgroundStyle" TargetType="{x:Type Image}">
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Stretch" Value="Fill"/>
+            <Setter Property="Source" Value="/Assets/LabelBackground.png"/>
+            <Setter Property="Margin" Value="8,8,8,0"/>
+        </Style>
+
         <Style x:Key="InputTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="FontSize" Value="28"/>
+            <Setter Property="Height" Value="48"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="#ff000000"/>
             <Setter Property="Margin" Value="8,8,8,0"/>
@@ -83,8 +98,11 @@
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
                         <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="styleListPanel">
-                        	<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                            <DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
                         </BooleanAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="splashGoButton">
+                        	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="VSDetail">
@@ -114,8 +132,11 @@
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
                         <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="styleDetailPanel">
-                        	<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                            <DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
                         </BooleanAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="splashGoButton">
+                        	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="VSEditor">
@@ -151,8 +172,11 @@
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
                         <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="editorPanel">
-                        	<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                            <DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
                         </BooleanAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="splashGoButton">
+                        	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="VSConfirm">
@@ -194,8 +218,11 @@
                             <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
                         </DoubleAnimationUsingKeyFrames>
                         <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="confirmPanel">
-                        	<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                            <DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
                         </BooleanAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="splashGoButton">
+                        	<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="VSSplash">
@@ -204,9 +231,12 @@
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="splashPanel">
-                        	<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
                         </DoubleAnimationUsingKeyFrames>
                         <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="splashPanel">
+                            <DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                        </BooleanAnimationUsingKeyFrames>
+                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="splashGoButton">
                         	<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
                         </BooleanAnimationUsingKeyFrames>
                     </Storyboard>
@@ -246,11 +276,14 @@
                     </TransformGroup>
                 </Grid.RenderTransform>
                 <!--<TextBlock Text="恭喜您！您的信息已成功录入！" Style="{StaticResource ConfirmTextStyle}"/>-->
-                <Button Content="Home" Style="{StaticResource CommonButtonStyle}" Margin="0,160,0,0" Click="home_Click" />
+                <!--<Button Content="Home" Style="{StaticResource CommonButtonStyle}" Margin="0,160,0,0" Click="home_Click" />-->
+                <local:Tile Margin="0,160,0,0" Click="home_Click" >
+                    <Image Source="/Assets/ButtonNext.png" Stretch="Uniform" Width="120"/>
+                </local:Tile>
             </Grid>
 
             <!--editor panel-->
-            <Grid x:Name="editorPanel" VerticalAlignment="Bottom" Margin="32,0,32,100" RenderTransformOrigin="0.5,0.5" Opacity="0" IsHitTestVisible="False">
+            <Grid x:Name="editorPanel" IsHitTestVisible="False" Opacity="0">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -260,44 +293,52 @@
                     </TransformGroup>
                 </Grid.RenderTransform>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="180"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="姓名" Style="{StaticResource InputLabelStyle}"/>
-                <TextBox Grid.Row="0" Grid.Column="1" x:Name="ED_CustomerName" Style="{StaticResource InputTextBoxStyle}"/>
-
-                <TextBlock Grid.Row="0" Grid.Column="2" Text="邮箱" Style="{StaticResource InputLabelStyle}"/>
-                <TextBox Grid.Row="0" Grid.Column="3" x:Name="ED_Email" Style="{StaticResource InputTextBoxStyle}"/>
-
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="电话" Style="{StaticResource InputLabelStyle}"/>
-                <TextBox Grid.Row="1" Grid.Column="1" x:Name="ED_Phone" Style="{StaticResource InputTextBoxStyle}"/>
-
-                <TextBlock Grid.Row="1" Grid.Column="2" Text="微信号" Style="{StaticResource InputLabelStyle}"/>
-                <TextBox Grid.Row="1" Grid.Column="3" x:Name="ED_WeChatID" Style="{StaticResource InputTextBoxStyle}"/>
-
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="媒体名称" Style="{StaticResource InputLabelStyle}"/>
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="ED_MediaName" Style="{StaticResource InputTextBoxStyle}"/>
-
-                <TextBlock Grid.Row="2" Grid.Column="2" Text="所在城市" Style="{StaticResource InputLabelStyle}"/>
-                <TextBox Grid.Row="2" Grid.Column="3" x:Name="ED_City" Style="{StaticResource InputTextBoxStyle}"/>
-
-                <Grid Grid.Row="3" Grid.Column="3">
+                <Grid VerticalAlignment="Center" Width="1024">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Content="取消" Style="{StaticResource CommonButtonStyle}" Click="editorCancel_Click"/>
-                    <Button Grid.Column="1" Content="确定" Style="{StaticResource CommonButtonStyle}" Click="editorSave_Click"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelBackgroundStyle}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="姓        名" Style="{StaticResource InputLabelStyle}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="ED_CustomerName" Style="{StaticResource InputTextBoxStyle}"/>
+
+                    <Image Grid.Row="0" Grid.Column="2" Style="{StaticResource LabelBackgroundStyle}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="邮        箱" Style="{StaticResource InputLabelStyle}"/>
+                    <TextBox Grid.Row="0" Grid.Column="3" x:Name="ED_Email" Style="{StaticResource InputTextBoxStyle}"/>
+
+                    <Image Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelBackgroundStyle}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="电        话" Style="{StaticResource InputLabelStyle}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="ED_Phone" Style="{StaticResource InputTextBoxStyle}"/>
+
+                    <Image Grid.Row="1" Grid.Column="2" Style="{StaticResource LabelBackgroundStyle}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="微  信  号" Style="{StaticResource InputLabelStyle}"/>
+                    <TextBox Grid.Row="1" Grid.Column="3" x:Name="ED_WeChatID" Style="{StaticResource InputTextBoxStyle}"/>
+
+                    <Image Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelBackgroundStyle}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="媒体名称" Style="{StaticResource InputLabelStyle}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="ED_MediaName" Style="{StaticResource InputTextBoxStyle}"/>
+
+                    <Image Grid.Row="2" Grid.Column="2" Style="{StaticResource LabelBackgroundStyle}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="所在城市" Style="{StaticResource InputLabelStyle}"/>
+                    <TextBox Grid.Row="2" Grid.Column="3" x:Name="ED_City" Style="{StaticResource InputTextBoxStyle}"/>
+
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="0,50,0,0">
+                        <local:Tile Margin="10,0" Click="editorSave_Click">
+                            <Image Source="/Assets/ButtonOK.png" Stretch="Uniform" Width="120"/>
+                        </local:Tile>
+                        <local:Tile Margin="10,0" Click="editorCancel_Click">
+                            <Image Source="/Assets/ButtonCancel.png" Stretch="Uniform" Width="120"/>
+                        </local:Tile>
+                    </StackPanel>
                 </Grid>
 
             </Grid>
@@ -312,15 +353,26 @@
                         <TranslateTransform X="400"/>
                     </TransformGroup>
                 </Grid.RenderTransform>
-                <local:CoverShow x:Name="coverShow" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,80,0,0"/>
-                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,100,80">
+                <Grid Background="#80000000" HorizontalAlignment="Right" Width="400" Margin="0,50,50,190">
+                    <TextBlock Text="{Binding Description}" Style="{StaticResource ItemDescriptionStyle}"/>
+                </Grid>
+                <local:CoverShow x:Name="coverShow" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,40,0,0"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,40">
+                    <!--
                     <Button Grid.Column="1" Content="确定" Style="{StaticResource CommonButtonStyle}" Click="styleDetailOK"/>
                     <Button Grid.Column="0" Content="返回" Style="{StaticResource CommonButtonStyle}" Click="styleDetailCancel"/>
+                    -->
+                    <local:Tile Margin="10,0" Click="styleDetailOK">
+                        <Image Source="/Assets/ButtonOK.png" Stretch="Uniform" Width="120"/>
+                    </local:Tile>
+                    <local:Tile Margin="10,0" Click="styleDetailCancel">
+                        <Image Source="/Assets/ButtonCancel.png" Stretch="Uniform" Width="120"/>
+                    </local:Tile>
                 </StackPanel>
             </Grid>
 
             <!--style list-->
-            <Grid x:Name="styleListPanel" Opacity="0" IsHitTestVisible="False">
+            <Grid x:Name="styleListPanel" IsHitTestVisible="False" Opacity="0">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -330,40 +382,42 @@
                     </TransformGroup>
                 </Grid.RenderTransform>
 
-                <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,80,0,0" Click="StyleListItem_Click" Tag="1">
-                    <StackPanel Background="#80ffffff" Width="220" >
-                        <Image Source="/Assets/StyleThumbnail01.jpg" Stretch="Uniform"/>
-                        <TextBlock Text="地中海式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                    </StackPanel>
-                </local:Tile>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,120,0,0">
+                    <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="1" Margin="10,0">
+                        <Grid Width="220" >
+                            <Image Source="/Assets/StyleThumbnail01.png" Stretch="Uniform"/>
+                            <TextBlock Text="地中海式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                        </Grid>
+                    </local:Tile>
 
-                <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="401,80,0,0" Click="StyleListItem_Click" Tag="2">
-                    <StackPanel Background="#80ffffff" Width="220" >
-                        <Image Source="/Assets/StyleThumbnail02.jpg" Stretch="Uniform"/>
-                        <TextBlock Text="法式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                    </StackPanel>
-                </local:Tile>
+                    <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="2" Margin="10,0">
+                        <Grid Width="220" >
+                            <Image Source="/Assets/StyleThumbnail02.png" Stretch="Uniform"/>
+                            <TextBlock Text="法式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                        </Grid>
+                    </local:Tile>
 
-                <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="260,390,0,0" Click="StyleListItem_Click" Tag="3">
-                    <StackPanel Background="#80ffffff" Width="220" >
-                        <Image Source="/Assets/StyleThumbnail03.jpg" Stretch="Uniform"/>
-                        <TextBlock Text="现代风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                    </StackPanel>
-                </local:Tile>
+                    <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="3" Margin="10,0">
+                        <Grid Width="220" >
+                            <Image Source="/Assets/StyleThumbnail03.png" Stretch="Uniform"/>
+                            <TextBlock Text="现代风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                        </Grid>
+                    </local:Tile>
 
-                <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="560,390,0,0" Click="StyleListItem_Click" Tag="4">
-                    <StackPanel Background="#80ffffff" Width="220" >
-                        <Image Source="/Assets/StyleThumbnail04.jpg" Stretch="Uniform"/>
-                        <TextBlock Text="新古典风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                    </StackPanel>
-                </local:Tile>
+                    <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="4" Margin="10,0">
+                        <Grid Width="220" >
+                            <Image Source="/Assets/StyleThumbnail04.png" Stretch="Uniform"/>
+                            <TextBlock Text="新古典风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                        </Grid>
+                    </local:Tile>
 
-                <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="860,390,0,0" Click="StyleListItem_Click" Tag="5">
-                    <StackPanel Background="#80ffffff" Width="220" >
-                        <Image Source="/Assets/StyleThumbnail05.jpg" Stretch="Uniform"/>
-                        <TextBlock Text="新亚洲风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                    </StackPanel>
-                </local:Tile>
+                    <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="5" Margin="10,0">
+                        <Grid Width="220" >
+                            <Image Source="/Assets/StyleThumbnail05.png" Stretch="Uniform"/>
+                            <TextBlock Text="新亚洲风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                        </Grid>
+                    </local:Tile>
+                </StackPanel>
 
             </Grid>
 
@@ -381,13 +435,14 @@
                 <Run Text="afddsafafs &#x0a;" FontSize="32"/>
                 <Run Text="afddsafafs" FontSize="28"/>
             </TextBlock>-->
-                <local:Tile HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,30,40,0" Click="SplashGo_Click">
-                    <Grid Background="#00000000" Width="160" Height="320" >
-                        <Image Source="/Assets/SplashGoButton.png" Stretch="Uniform"/>
-                    </Grid>
-                </local:Tile>
             </Grid>
         </Grid>
+
+        <local:Tile x:Name="splashGoButton" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,30,40,0" Click="SplashGo_Click" IsHitTestVisible="False">
+            <Grid Background="#00000000" Width="160" Height="320" >
+                <Image Source="/Assets/SplashGoButton.png" Stretch="Uniform"/>
+            </Grid>
+        </local:Tile>
 
     </Grid>
 

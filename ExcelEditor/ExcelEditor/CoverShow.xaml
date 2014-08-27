@@ -5,173 +5,113 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              Height="600" Width="660">
-    
-    <Grid x:Name="LayoutRoot" Background="#80000000">
-    	<VisualStateManager.VisualStateGroups>
-    		<VisualStateGroup x:Name="VisualStateGroup">
-    			<VisualStateGroup.Transitions>
-    				<VisualTransition GeneratedDuration="0:0:0.4">
-    					<VisualTransition.GeneratedEasingFunction>
-    						<PowerEase EasingMode="EaseInOut"/>
-    					</VisualTransition.GeneratedEasingFunction>
-    				</VisualTransition>
-    			</VisualStateGroup.Transitions>
-    			<VisualState x:Name="VS0"/>
-    			<VisualState x:Name="VS1">
-    				<Storyboard>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="img1">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="img1">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="img1">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img1">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
-    					</DoubleAnimationUsingKeyFrames>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="VS2">
-    				<Storyboard>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="img2">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="img2">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="img2">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img2">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
-    					</DoubleAnimationUsingKeyFrames>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="VS3">
-    				<Storyboard>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img3">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="img3">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="img3">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-    					</DoubleAnimationUsingKeyFrames>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="VS4">
-    				<Storyboard>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="img4">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="img4">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="img4">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img4">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
-    					</DoubleAnimationUsingKeyFrames>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="VS5">
-    				<Storyboard>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="img5">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img5">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="img5">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-    					</DoubleAnimationUsingKeyFrames>
-    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="img5">
-    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-    					</DoubleAnimationUsingKeyFrames>
-    				</Storyboard>
-    			</VisualState>
-    		</VisualStateGroup>
-    	</VisualStateManager.VisualStateGroups>
-        
-        <!--fixed images-->
-        <Grid Opacity="0.3">
-            <Grid x:Name="img1_fix" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="thumbnail_MouseLeftButtonDown" Tag="1">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="0.1875" ScaleY="0.1875"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="-260" Y="245"/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-                <Image Source="{Binding}" Stretch="Uniform"/>
-            </Grid>
 
-            <Grid x:Name="img2_fix" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="thumbnail_MouseLeftButtonDown" Tag="2">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="0.1875" ScaleY="0.1875"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="-130" Y="245"/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-                <Image Source="{Binding}" Stretch="Uniform"/>
-            </Grid>
+    <Grid x:Name="LayoutRoot" Background="#00000000">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.4">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <PowerEase EasingMode="EaseInOut"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="VS0"/>
+                <VisualState x:Name="VS1">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="img1">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="img1">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="img1">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img1">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img1_fix">
+                        	<EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="VS2">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="img2">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="img2">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="img2">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img2">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img2_fix">
+                        	<EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="VS3">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img3">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="img3">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="img3">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img3_fix">
+                        	<EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="VS4">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="img4">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="img4">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="img4">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img4">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img4_fix">
+                        	<EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="VS5">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="img5">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="img5">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="img5">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="img5">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="img5_fix">
+                        	<EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
-            <Grid x:Name="img3_fix" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="thumbnail_MouseLeftButtonDown" Tag="3">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="0.1875" ScaleY="0.1875"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="0" Y="245"/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-                <Image Source="{Binding}" Stretch="Uniform"/>
-            </Grid>
-
-            <Grid x:Name="img4_fix" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="thumbnail_MouseLeftButtonDown" Tag="4">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="0.1875" ScaleY="0.1875"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="130" Y="245"/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-                <Image Source="{Binding}" Stretch="Uniform"/>
-            </Grid>
-
-            <Grid x:Name="img5_fix" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="thumbnail_MouseLeftButtonDown" Tag="5">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="0.1875" ScaleY="0.1875"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="260" Y="245"/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-                <Image Source="{Binding}" Stretch="Uniform"/>
-            </Grid>
-        </Grid>
-        
-        <Grid x:Name="img0" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" >
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="1" ScaleY="1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0" Y="-50"/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-            <Image Source="{Binding}" Stretch="Uniform"/>
-        </Grid>
-        
         <Grid x:Name="img1" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" IsHitTestVisible="False">
             <Grid.RenderTransform>
                 <TransformGroup>
@@ -181,7 +121,9 @@
                     <TranslateTransform X="-260" Y="245"/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <Image Source="{Binding}" Stretch="Uniform"/>
+            <Border BorderThickness="8" BorderBrush="#80ffffff" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image Source="{Binding}" Stretch="Uniform"/>
+            </Border>
         </Grid>
 
         <Grid x:Name="img2" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" IsHitTestVisible="False">
@@ -193,7 +135,10 @@
                     <TranslateTransform X="-130" Y="245"/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <Image Source="{Binding}" Stretch="Uniform"/>
+            <Border BorderThickness="8" BorderBrush="#80ffffff" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image Source="{Binding}" Stretch="Uniform"/>
+            </Border>
+
         </Grid>
 
         <Grid x:Name="img3" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" IsHitTestVisible="False">
@@ -205,7 +150,11 @@
                     <TranslateTransform X="0" Y="245"/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <Image Source="{Binding}" Stretch="Uniform"/>
+            <Border BorderThickness="8" BorderBrush="#80ffffff" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <Image Source="{Binding}" Stretch="Uniform"/>
+            </Border>
+
         </Grid>
 
         <Grid x:Name="img4" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" IsHitTestVisible="False">
@@ -217,7 +166,11 @@
                     <TranslateTransform X="130" Y="245"/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <Image Source="{Binding}" Stretch="Uniform"/>
+            <Border BorderThickness="8" BorderBrush="#80ffffff" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <Image Source="{Binding}" Stretch="Uniform"/>
+            </Border>
+
         </Grid>
 
         <Grid x:Name="img5" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" IsHitTestVisible="False">
@@ -229,9 +182,84 @@
                     <TranslateTransform X="260" Y="245"/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <Image Source="{Binding}" Stretch="Uniform"/>
+            <Border BorderThickness="8" BorderBrush="#80ffffff" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image Source="{Binding}" Stretch="Uniform"/>
+            </Border>
+        </Grid>
+
+        <!--fixed images-->
+        <Grid x:Name="buttonPanel">
+            <Grid x:Name="img1_fix" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="thumbnail_MouseLeftButtonDown" Tag="1">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.1875" ScaleY="0.1875"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-260" Y="245"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Border BorderThickness="8" BorderBrush="#80ffffff" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Image Source="{Binding}" Stretch="UniformToFill"/>
+                </Border>
+            </Grid>
+
+            <Grid x:Name="img2_fix" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="thumbnail_MouseLeftButtonDown" Tag="2">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.1875" ScaleY="0.1875"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-130" Y="245"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Border BorderThickness="8" BorderBrush="#80ffffff" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Image Source="{Binding}" Stretch="UniformToFill"/>
+                </Border>
+            </Grid>
+
+            <Grid x:Name="img3_fix" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="thumbnail_MouseLeftButtonDown" Tag="3">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.1875" ScaleY="0.1875"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0" Y="245"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Border BorderThickness="8" BorderBrush="#80ffffff" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Image Source="{Binding}" Stretch="UniformToFill"/>
+                </Border>
+            </Grid>
+
+            <Grid x:Name="img4_fix" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="thumbnail_MouseLeftButtonDown" Tag="4">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.1875" ScaleY="0.1875"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="130" Y="245"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Border BorderThickness="8" BorderBrush="#80ffffff" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Image Source="{Binding}" Stretch="UniformToFill"/>
+                </Border>
+            </Grid>
+
+            <Grid x:Name="img5_fix" Width="640" Height="480" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="thumbnail_MouseLeftButtonDown" Tag="5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="0.1875" ScaleY="0.1875"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="260" Y="245"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Border BorderThickness="8" BorderBrush="#80ffffff" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Image Source="{Binding}" Stretch="UniformToFill"/>
+                </Border>
+            </Grid>
         </Grid>
 
     </Grid>
-    
+
 </UserControl>

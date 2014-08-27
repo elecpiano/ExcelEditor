@@ -118,13 +118,6 @@
     <Resource Include="Assets\PageBackground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\StyleThumbnail01.jpg" />
-    <Resource Include="Assets\StyleThumbnail02.jpg" />
-    <Resource Include="Assets\StyleThumbnail03.jpg" />
-    <Resource Include="Assets\StyleThumbnail04.jpg" />
-    <Resource Include="Assets\StyleThumbnail05.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\Style_1_1.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +134,43 @@
     <Resource Include="Assets\ButtonCancel.png" />
     <Resource Include="Assets\ButtonNext.png" />
     <Resource Include="Assets\ButtonOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\StyleThumbnail01.png" />
+    <Resource Include="Assets\StyleThumbnail02.png" />
+    <Resource Include="Assets\StyleThumbnail03.png" />
+    <Resource Include="Assets\StyleThumbnail04.png" />
+    <Resource Include="Assets\StyleThumbnail05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Style1\Style_1_1.jpg" />
+    <Resource Include="Assets\Style1\Style_1_2.jpg" />
+    <Resource Include="Assets\Style1\Style_1_3.jpg" />
+    <Resource Include="Assets\Style1\Style_1_4.jpg" />
+    <Resource Include="Assets\Style1\Style_1_5.JPG" />
+    <Resource Include="Assets\Style2\Style_2_1.jpg" />
+    <Resource Include="Assets\Style2\Style_2_2.jpg" />
+    <Resource Include="Assets\Style2\Style_2_3.jpg" />
+    <Resource Include="Assets\Style2\Style_2_4.jpg" />
+    <Resource Include="Assets\Style2\Style_2_5.jpg" />
+    <Resource Include="Assets\Style3\Style_3_1.JPG" />
+    <Resource Include="Assets\Style3\Style_3_2.JPG" />
+    <Resource Include="Assets\Style3\Style_3_3.JPG" />
+    <Resource Include="Assets\Style3\Style_3_4.JPG" />
+    <Resource Include="Assets\Style3\Style_3_5.JPG" />
+    <Resource Include="Assets\Style4\Style_4_1.jpg" />
+    <Resource Include="Assets\Style4\Style_4_2.jpg" />
+    <Resource Include="Assets\Style4\Style_4_3.jpg" />
+    <Resource Include="Assets\Style4\Style_4_4.jpg" />
+    <Resource Include="Assets\Style4\Style_4_5.jpg" />
+    <Resource Include="Assets\Style5\Style_5_1.JPG" />
+    <Resource Include="Assets\Style5\Style_5_2.jpg" />
+    <Resource Include="Assets\Style5\Style_5_3.JPG" />
+    <Resource Include="Assets\Style5\Style_5_4.jpg" />
+    <Resource Include="Assets\Style5\Style_5_5.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\LabelBackground.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
