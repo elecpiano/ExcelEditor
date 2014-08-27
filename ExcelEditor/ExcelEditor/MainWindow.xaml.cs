@@ -46,6 +46,7 @@ namespace ExcelEditor
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            ExtendedVisualStateManager.GoToElementState(this.LayoutRoot as FrameworkElement, "VSSplash", true);
             dataAccess = new DataAccess();
             Sync();
         }
@@ -230,6 +231,15 @@ namespace ExcelEditor
         #region Confirm Panel
 
         private void home_Click(object sender, RoutedEventArgs e)
+        {
+            ExtendedVisualStateManager.GoToElementState(this.LayoutRoot as FrameworkElement, "VSSplash", true);
+        }
+
+        #endregion
+
+        #region Splash
+
+        private void SplashGo_Click(object sender, RoutedEventArgs e)
         {
             ExtendedVisualStateManager.GoToElementState(this.LayoutRoot as FrameworkElement, "VSList", true);
         }

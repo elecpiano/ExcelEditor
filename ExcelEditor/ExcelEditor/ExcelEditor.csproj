@@ -127,6 +127,21 @@
   <ItemGroup>
     <Resource Include="Assets\Style_1_1.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Background1.jpg" />
+    <Resource Include="Assets\Background2.jpg" />
+    <Resource Include="Assets\Background3.jpg" />
+    <Resource Include="Assets\Background4.jpg" />
+    <Resource Include="Assets\Background5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\SplashGoButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ButtonCancel.png" />
+    <Resource Include="Assets\ButtonNext.png" />
+    <Resource Include="Assets\ButtonOK.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

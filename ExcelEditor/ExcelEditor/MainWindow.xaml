@@ -4,9 +4,17 @@
         xmlns:local="clr-namespace:ExcelEditor" 
     x:Class="ExcelEditor.MainWindow"
         Title="MainWindow" Height="720" Width="1280"
-    WindowStyle="None" WindowStartupLocation="CenterScreen">
+     WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
+        <Style x:Key="SplashTextStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="Foreground" Value="#ff4d4d4d"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+
         <Style x:Key="StyleListItemTitleStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="Foreground" Value="#ff4d4d4d"/>
@@ -14,6 +22,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="8"/>
         </Style>
+
         <Style x:Key="ConfirmTextStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="48"/>
             <Setter Property="Foreground" Value="#ff4d4d4d"/>
@@ -21,6 +30,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="8"/>
         </Style>
+
         <Style x:Key="InputLabelStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="28"/>
             <Setter Property="Foreground" Value="#ff4d4d4d"/>
@@ -28,12 +38,14 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="0,0,0,0"/>
         </Style>
+
         <Style x:Key="InputTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="FontSize" Value="28"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="#ff000000"/>
             <Setter Property="Margin" Value="8,8,8,0"/>
         </Style>
+
         <Style x:Key="CommonButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="Foreground" Value="#ff000000"/>
@@ -53,199 +65,328 @@
                         </VisualTransition.GeneratedEasingFunction>
                     </VisualTransition>
                 </VisualStateGroup.Transitions>
-                <VisualState x:Name="VSList"/>
+                <VisualState x:Name="VSList">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage1">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleListPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="styleListPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="splashPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="splashPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="styleListPanel">
+                        	<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                        </BooleanAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
                 <VisualState x:Name="VSDetail">
                     <Storyboard>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleListPanel">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
                         </DoubleAnimationUsingKeyFrames>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleDetailPanel">
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="backgroundImage">
-                        	<EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
                         </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage2">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage1">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="styleDetailPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="splashPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="splashPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="styleDetailPanel">
+                        	<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                        </BooleanAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="VSEditor">
-                	<Storyboard>
-                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="editorPanel">
-                			<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                		</DoubleAnimationUsingKeyFrames>
-                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleListPanel">
-                			<EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
-                		</DoubleAnimationUsingKeyFrames>
-                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleDetailPanel">
-                			<EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
-                		</DoubleAnimationUsingKeyFrames>
-                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="backgroundImage">
-                			<EasingDoubleKeyFrame KeyTime="0" Value="-100"/>
-                		</DoubleAnimationUsingKeyFrames>
-                	</Storyboard>
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="editorPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleListPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleDetailPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="backgroundImage">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-100"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage3">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage2">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage1">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="editorPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="splashPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="splashPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="editorPanel">
+                        	<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                        </BooleanAnimationUsingKeyFrames>
+                    </Storyboard>
                 </VisualState>
                 <VisualState x:Name="VSConfirm">
-                	<Storyboard>
-                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="confirmPanel">
-                			<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                		</DoubleAnimationUsingKeyFrames>
-                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="editorPanel">
-                			<EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
-                		</DoubleAnimationUsingKeyFrames>
-                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleDetailPanel">
-                			<EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
-                		</DoubleAnimationUsingKeyFrames>
-                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleListPanel">
-                			<EasingDoubleKeyFrame KeyTime="0" Value="-1280"/>
-                		</DoubleAnimationUsingKeyFrames>
-                		<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="backgroundImage">
-                			<EasingDoubleKeyFrame KeyTime="0" Value="-150"/>
-                		</DoubleAnimationUsingKeyFrames>
-                	</Storyboard>
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="confirmPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="editorPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleDetailPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleListPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="backgroundImage">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-150"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage4">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage3">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage2">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage1">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="confirmPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="splashPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="splashPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="confirmPanel">
+                        	<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                        </BooleanAnimationUsingKeyFrames>
+                    </Storyboard>
                 </VisualState>
+                <VisualState x:Name="VSSplash">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="splashPanel">
+                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="splashPanel">
+                        	<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" Storyboard.TargetName="splashPanel">
+                        	<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+                        </BooleanAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="VSInitial"/>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <!--background-->
-        <Image x:Name="backgroundImage" Source="/Assets/PageBackground.png" Stretch="UniformToFill" Margin="0,0,-150,0" RenderTransformOrigin="0.5,0.5">
-        	<Image.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</Image.RenderTransform>
-        </Image>
+        <Grid>
+            <Image x:Name="backgroundImage" Source="/Assets/PageBackground.png" Stretch="UniformToFill" Margin="0,0,-150,0" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
 
-        <!--style list-->
-        <Grid x:Name="styleListPanel">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="-0"/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-
-            <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,80,0,0" Click="StyleListItem_Click" Tag="1">
-                <StackPanel Background="#80ffffff" Width="220" >
-                    <Image Source="/Assets/StyleThumbnail01.jpg" Stretch="Uniform"/>
-                    <TextBlock Text="地中海式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                </StackPanel>
-            </local:Tile>
-
-            <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,80,0,0" Click="StyleListItem_Click" Tag="2">
-                <StackPanel Background="#80ffffff" Width="220" >
-                    <Image Source="/Assets/StyleThumbnail02.jpg" Stretch="Uniform"/>
-                    <TextBlock Text="法式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                </StackPanel>
-            </local:Tile>
-
-            <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="260,390,0,0" Click="StyleListItem_Click" Tag="3">
-                <StackPanel Background="#80ffffff" Width="220" >
-                    <Image Source="/Assets/StyleThumbnail03.jpg" Stretch="Uniform"/>
-                    <TextBlock Text="现代风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                </StackPanel>
-            </local:Tile>
-
-            <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="560,390,0,0" Click="StyleListItem_Click" Tag="4">
-                <StackPanel Background="#80ffffff" Width="220" >
-                    <Image Source="/Assets/StyleThumbnail04.jpg" Stretch="Uniform"/>
-                    <TextBlock Text="新古典风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                </StackPanel>
-            </local:Tile>
-
-            <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="860,390,0,0" Click="StyleListItem_Click" Tag="5">
-                <StackPanel Background="#80ffffff" Width="220" >
-                    <Image Source="/Assets/StyleThumbnail05.jpg" Stretch="Uniform"/>
-                    <TextBlock Text="新亚洲风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                </StackPanel>
-            </local:Tile>
-
+            <Image x:Name="backgroundImage5" Source="/Assets/Background5.jpg" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="backgroundImage4" Source="/Assets/Background4.jpg" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="backgroundImage3" Source="/Assets/Background3.jpg" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="backgroundImage2" Source="/Assets/Background2.jpg" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5"/>
+            <Image x:Name="backgroundImage1" Source="/Assets/Background1.jpg" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
 
-        <!--style detail-->
-        <Grid x:Name="styleDetailPanel">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="1280"/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-            <local:CoverShow x:Name="coverShow" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,80,0,0"/>
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,100,80">
-                <Button Grid.Column="1" Content="确定" Style="{StaticResource CommonButtonStyle}" Click="styleDetailOK"/>
-                <Button Grid.Column="0" Content="返回" Style="{StaticResource CommonButtonStyle}" Click="styleDetailCancel"/>
-            </StackPanel>
-        </Grid>
-
-        <!--editor panel-->
-        <Grid x:Name="editorPanel" VerticalAlignment="Bottom" Margin="32,0,32,100" RenderTransformOrigin="0.5,0.5" Background="#80ffffff">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="1280"/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="180"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="180"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="姓名" Style="{StaticResource InputLabelStyle}"/>
-            <TextBox Grid.Row="0" Grid.Column="1" x:Name="ED_CustomerName" Style="{StaticResource InputTextBoxStyle}"/>
-
-            <TextBlock Grid.Row="0" Grid.Column="2" Text="邮箱" Style="{StaticResource InputLabelStyle}"/>
-            <TextBox Grid.Row="0" Grid.Column="3" x:Name="ED_Email" Style="{StaticResource InputTextBoxStyle}"/>
-
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="电话" Style="{StaticResource InputLabelStyle}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" x:Name="ED_Phone" Style="{StaticResource InputTextBoxStyle}"/>
-
-            <TextBlock Grid.Row="1" Grid.Column="2" Text="微信号" Style="{StaticResource InputLabelStyle}"/>
-            <TextBox Grid.Row="1" Grid.Column="3" x:Name="ED_WeChatID" Style="{StaticResource InputTextBoxStyle}"/>
-
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="媒体名称" Style="{StaticResource InputLabelStyle}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" x:Name="ED_MediaName" Style="{StaticResource InputTextBoxStyle}"/>
-
-            <TextBlock Grid.Row="2" Grid.Column="2" Text="所在城市" Style="{StaticResource InputLabelStyle}"/>
-            <TextBox Grid.Row="2" Grid.Column="3" x:Name="ED_City" Style="{StaticResource InputTextBoxStyle}"/>
-
-            <Grid Grid.Row="3" Grid.Column="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="取消" Style="{StaticResource CommonButtonStyle}" Click="editorCancel_Click"/>
-                <Button Grid.Column="1" Content="确定" Style="{StaticResource CommonButtonStyle}" Click="editorSave_Click"/>
+        <Grid Height="720" Width="1280">
+            <!--confirm-->
+            <Grid x:Name="confirmPanel" Opacity="0" IsHitTestVisible="False">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="400"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <!--<TextBlock Text="恭喜您！您的信息已成功录入！" Style="{StaticResource ConfirmTextStyle}"/>-->
+                <Button Content="Home" Style="{StaticResource CommonButtonStyle}" Margin="0,160,0,0" Click="home_Click" />
             </Grid>
 
-        </Grid>
+            <!--editor panel-->
+            <Grid x:Name="editorPanel" VerticalAlignment="Bottom" Margin="32,0,32,100" RenderTransformOrigin="0.5,0.5" Opacity="0" IsHitTestVisible="False">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="400"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
 
-        <!--confirm-->
-        <Grid x:Name="confirmPanel">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="1280"/>
-                </TransformGroup>
-            </Grid.RenderTransform>
-            <TextBlock Text="恭喜您！您的信息已成功录入！" Style="{StaticResource ConfirmTextStyle}"/>
-            <Button Content="Home" Style="{StaticResource CommonButtonStyle}" Margin="0,160,0,0" Click="home_Click" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="姓名" Style="{StaticResource InputLabelStyle}"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="ED_CustomerName" Style="{StaticResource InputTextBoxStyle}"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="邮箱" Style="{StaticResource InputLabelStyle}"/>
+                <TextBox Grid.Row="0" Grid.Column="3" x:Name="ED_Email" Style="{StaticResource InputTextBoxStyle}"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="电话" Style="{StaticResource InputLabelStyle}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="ED_Phone" Style="{StaticResource InputTextBoxStyle}"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="2" Text="微信号" Style="{StaticResource InputLabelStyle}"/>
+                <TextBox Grid.Row="1" Grid.Column="3" x:Name="ED_WeChatID" Style="{StaticResource InputTextBoxStyle}"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="媒体名称" Style="{StaticResource InputLabelStyle}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="ED_MediaName" Style="{StaticResource InputTextBoxStyle}"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="所在城市" Style="{StaticResource InputLabelStyle}"/>
+                <TextBox Grid.Row="2" Grid.Column="3" x:Name="ED_City" Style="{StaticResource InputTextBoxStyle}"/>
+
+                <Grid Grid.Row="3" Grid.Column="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="取消" Style="{StaticResource CommonButtonStyle}" Click="editorCancel_Click"/>
+                    <Button Grid.Column="1" Content="确定" Style="{StaticResource CommonButtonStyle}" Click="editorSave_Click"/>
+                </Grid>
+
+            </Grid>
+
+            <!--style detail-->
+            <Grid x:Name="styleDetailPanel" Opacity="0" IsHitTestVisible="False">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="400"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <local:CoverShow x:Name="coverShow" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,80,0,0"/>
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,100,80">
+                    <Button Grid.Column="1" Content="确定" Style="{StaticResource CommonButtonStyle}" Click="styleDetailOK"/>
+                    <Button Grid.Column="0" Content="返回" Style="{StaticResource CommonButtonStyle}" Click="styleDetailCancel"/>
+                </StackPanel>
+            </Grid>
+
+            <!--style list-->
+            <Grid x:Name="styleListPanel" Opacity="0" IsHitTestVisible="False">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="400"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+
+                <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,80,0,0" Click="StyleListItem_Click" Tag="1">
+                    <StackPanel Background="#80ffffff" Width="220" >
+                        <Image Source="/Assets/StyleThumbnail01.jpg" Stretch="Uniform"/>
+                        <TextBlock Text="地中海式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                    </StackPanel>
+                </local:Tile>
+
+                <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="401,80,0,0" Click="StyleListItem_Click" Tag="2">
+                    <StackPanel Background="#80ffffff" Width="220" >
+                        <Image Source="/Assets/StyleThumbnail02.jpg" Stretch="Uniform"/>
+                        <TextBlock Text="法式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                    </StackPanel>
+                </local:Tile>
+
+                <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="260,390,0,0" Click="StyleListItem_Click" Tag="3">
+                    <StackPanel Background="#80ffffff" Width="220" >
+                        <Image Source="/Assets/StyleThumbnail03.jpg" Stretch="Uniform"/>
+                        <TextBlock Text="现代风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                    </StackPanel>
+                </local:Tile>
+
+                <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="560,390,0,0" Click="StyleListItem_Click" Tag="4">
+                    <StackPanel Background="#80ffffff" Width="220" >
+                        <Image Source="/Assets/StyleThumbnail04.jpg" Stretch="Uniform"/>
+                        <TextBlock Text="新古典风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                    </StackPanel>
+                </local:Tile>
+
+                <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Margin="860,390,0,0" Click="StyleListItem_Click" Tag="5">
+                    <StackPanel Background="#80ffffff" Width="220" >
+                        <Image Source="/Assets/StyleThumbnail05.jpg" Stretch="Uniform"/>
+                        <TextBlock Text="新亚洲风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                    </StackPanel>
+                </local:Tile>
+
+            </Grid>
+
+            <!--splash-->
+            <Grid x:Name="splashPanel" Opacity="0" IsHitTestVisible="False">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="400"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <!--<TextBlock x:Name="splashTextBlock" Style="{StaticResource SplashTextStyle}">
+                <Run Text="afddsafafs &#x0a;" FontSize="32"/>
+                <Run Text="afddsafafs" FontSize="28"/>
+            </TextBlock>-->
+                <local:Tile HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,30,40,0" Click="SplashGo_Click">
+                    <Grid Background="#00000000" Width="160" Height="320" >
+                        <Image Source="/Assets/SplashGoButton.png" Stretch="Uniform"/>
+                    </Grid>
+                </local:Tile>
+            </Grid>
         </Grid>
 
     </Grid>
