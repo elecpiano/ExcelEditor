@@ -4,8 +4,8 @@
     xmlns:local="clr-namespace:ExcelEditor" 
     x:Class="ExcelEditor.MainWindow"
     Title="MainWindow" Height="720" Width="1280"
-    WindowStartupLocation="CenterScreen">
-    <!--WindowStyle="None" AllowsTransparency="True" WindowState="Maximized">-->
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None" AllowsTransparency="True" WindowState="Maximized">
 
     <Window.Resources>
         <Style x:Key="SplashTextStyle" TargetType="{x:Type TextBlock}">
@@ -306,7 +306,7 @@
                         <TextBox Grid.Row="1" Grid.Column="3" x:Name="ED_WeChatID" Style="{StaticResource InputTextBoxStyle}"/>
 
                         <Image Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelBackgroundStyle}"/>
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="媒体名称" Style="{StaticResource InputLabelStyle}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="单位名称" Style="{StaticResource InputLabelStyle}"/>
                         <TextBox Grid.Row="2" Grid.Column="1" x:Name="ED_MediaName" Style="{StaticResource InputTextBoxStyle}"/>
 
                         <Image Grid.Row="2" Grid.Column="2" Style="{StaticResource LabelBackgroundStyle}"/>
