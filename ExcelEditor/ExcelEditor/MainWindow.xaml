@@ -1,10 +1,11 @@
 ﻿<Window
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:ExcelEditor" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ExcelEditor" 
     x:Class="ExcelEditor.MainWindow"
-        Title="MainWindow" Height="720" Width="1280"
-     WindowStartupLocation="CenterScreen">
+    Title="MainWindow" Height="720" Width="1280"
+    WindowStartupLocation="CenterScreen">
+    <!--WindowStyle="None" AllowsTransparency="True" WindowState="Maximized">-->
 
     <Window.Resources>
         <Style x:Key="SplashTextStyle" TargetType="{x:Type TextBlock}">
@@ -113,9 +114,6 @@
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleDetailPanel">
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="backgroundImage">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="-50"/>
-                        </DoubleAnimationUsingKeyFrames>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage2">
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                         </DoubleAnimationUsingKeyFrames>
@@ -149,9 +147,6 @@
                         </DoubleAnimationUsingKeyFrames>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleDetailPanel">
                             <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
-                        </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="backgroundImage">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="-100"/>
                         </DoubleAnimationUsingKeyFrames>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage3">
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
@@ -192,9 +187,6 @@
                         </DoubleAnimationUsingKeyFrames>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="styleListPanel">
                             <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
-                        </DoubleAnimationUsingKeyFrames>
-                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="backgroundImage">
-                            <EasingDoubleKeyFrame KeyTime="0" Value="-150"/>
                         </DoubleAnimationUsingKeyFrames>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="backgroundImage4">
                             <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
@@ -246,17 +238,6 @@
         </VisualStateManager.VisualStateGroups>
         <!--background-->
         <Grid>
-            <Image x:Name="backgroundImage" Source="/Assets/PageBackground.png" Stretch="UniformToFill" Margin="0,0,-150,0" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-
             <Image x:Name="backgroundImage5" Source="/Assets/Background5.jpg" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5"/>
             <Image x:Name="backgroundImage4" Source="/Assets/Background4.jpg" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5"/>
             <Image x:Name="backgroundImage3" Source="/Assets/Background3.jpg" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5"/>
@@ -264,185 +245,191 @@
             <Image x:Name="backgroundImage1" Source="/Assets/Background1.jpg" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
 
-        <Grid Height="720" Width="1280">
-            <!--confirm-->
-            <Grid x:Name="confirmPanel" Opacity="0" IsHitTestVisible="False">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="400"/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-                <!--<TextBlock Text="恭喜您！您的信息已成功录入！" Style="{StaticResource ConfirmTextStyle}"/>-->
-                <!--<Button Content="Home" Style="{StaticResource CommonButtonStyle}" Margin="0,160,0,0" Click="home_Click" />-->
-                <local:Tile Margin="0,160,0,0" Click="home_Click" >
-                    <Image Source="/Assets/ButtonNext.png" Stretch="Uniform" Width="120"/>
-                </local:Tile>
-            </Grid>
+        <Viewbox>
+            <Grid Height="720" Width="1280">
+                <!--confirm-->
+                <Grid x:Name="confirmPanel" Opacity="0" IsHitTestVisible="False">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="400"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <!--<TextBlock Text="恭喜您！您的信息已成功录入！" Style="{StaticResource ConfirmTextStyle}"/>-->
+                    <!--<Button Content="Home" Style="{StaticResource CommonButtonStyle}" Margin="0,160,0,0" Click="home_Click" />-->
+                    <local:Tile Margin="0,0,0,50" Click="home_Click" VerticalAlignment="Bottom">
+                        <Image Source="/Assets/ButtonHome.png" Stretch="Uniform" Width="150"/>
+                    </local:Tile>
+                </Grid>
 
-            <!--editor panel-->
-            <Grid x:Name="editorPanel" IsHitTestVisible="False" Opacity="0">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="400"/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
+                <!--editor panel-->
+                <Grid x:Name="editorPanel" IsHitTestVisible="False" Opacity="0">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="400"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
 
-                <Grid VerticalAlignment="Center" Width="1024">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="180"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="180"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+                    <Grid VerticalAlignment="Center" Width="1024">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
 
-                    <Image Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelBackgroundStyle}"/>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="姓        名" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="ED_CustomerName" Style="{StaticResource InputTextBoxStyle}"/>
+                        <Image Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelBackgroundStyle}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="姓        名" Style="{StaticResource InputLabelStyle}"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" x:Name="ED_CustomerName" Style="{StaticResource InputTextBoxStyle}"/>
 
-                    <Image Grid.Row="0" Grid.Column="2" Style="{StaticResource LabelBackgroundStyle}"/>
-                    <TextBlock Grid.Row="0" Grid.Column="2" Text="邮        箱" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox Grid.Row="0" Grid.Column="3" x:Name="ED_Email" Style="{StaticResource InputTextBoxStyle}"/>
+                        <Image Grid.Row="0" Grid.Column="2" Style="{StaticResource LabelBackgroundStyle}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="邮        箱" Style="{StaticResource InputLabelStyle}"/>
+                        <TextBox Grid.Row="0" Grid.Column="3" x:Name="ED_Email" Style="{StaticResource InputTextBoxStyle}"/>
 
-                    <Image Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelBackgroundStyle}"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="电        话" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="ED_Phone" Style="{StaticResource InputTextBoxStyle}"/>
+                        <Image Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelBackgroundStyle}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="电        话" Style="{StaticResource InputLabelStyle}"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" x:Name="ED_Phone" Style="{StaticResource InputTextBoxStyle}"/>
 
-                    <Image Grid.Row="1" Grid.Column="2" Style="{StaticResource LabelBackgroundStyle}"/>
-                    <TextBlock Grid.Row="1" Grid.Column="2" Text="微  信  号" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox Grid.Row="1" Grid.Column="3" x:Name="ED_WeChatID" Style="{StaticResource InputTextBoxStyle}"/>
+                        <Image Grid.Row="1" Grid.Column="2" Style="{StaticResource LabelBackgroundStyle}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="2" Text="微  信  号" Style="{StaticResource InputLabelStyle}"/>
+                        <TextBox Grid.Row="1" Grid.Column="3" x:Name="ED_WeChatID" Style="{StaticResource InputTextBoxStyle}"/>
 
-                    <Image Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelBackgroundStyle}"/>
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="媒体名称" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="ED_MediaName" Style="{StaticResource InputTextBoxStyle}"/>
+                        <Image Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelBackgroundStyle}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="媒体名称" Style="{StaticResource InputLabelStyle}"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" x:Name="ED_MediaName" Style="{StaticResource InputTextBoxStyle}"/>
 
-                    <Image Grid.Row="2" Grid.Column="2" Style="{StaticResource LabelBackgroundStyle}"/>
-                    <TextBlock Grid.Row="2" Grid.Column="2" Text="所在城市" Style="{StaticResource InputLabelStyle}"/>
-                    <TextBox Grid.Row="2" Grid.Column="3" x:Name="ED_City" Style="{StaticResource InputTextBoxStyle}"/>
+                        <Image Grid.Row="2" Grid.Column="2" Style="{StaticResource LabelBackgroundStyle}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="2" Text="所在城市" Style="{StaticResource InputLabelStyle}"/>
+                        <TextBox Grid.Row="2" Grid.Column="3" x:Name="ED_City" Style="{StaticResource InputTextBoxStyle}"/>
 
-                    <StackPanel Grid.Row="3" Orientation="Horizontal" Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="0,50,0,0">
-                        <local:Tile Margin="10,0" Click="editorSave_Click">
-                            <Image Source="/Assets/ButtonOK.png" Stretch="Uniform" Width="120"/>
+                        <StackPanel Grid.Row="3" Orientation="Horizontal" Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="0,50,0,0">
+                            <local:Tile Margin="10,0" Click="editorSave_Click">
+                                <Image Source="/Assets/ButtonOK.png" Stretch="Uniform" Width="150"/>
+                            </local:Tile>
+                            <local:Tile Margin="10,0" Click="editorCancel_Click">
+                                <Image Source="/Assets/ButtonCancel.png" Stretch="Uniform" Width="150"/>
+                            </local:Tile>
+                        </StackPanel>
+                    </Grid>
+
+                </Grid>
+
+                <!--style detail-->
+                <Grid x:Name="styleDetailPanel" Opacity="0" IsHitTestVisible="False">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="400"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Grid Background="#80000000" HorizontalAlignment="Right" Width="400" Margin="0,50,50,190" 
+                          Visibility="Collapsed">
+                        <TextBlock Text="{Binding Description}" Style="{StaticResource ItemDescriptionStyle}"/>
+                    </Grid>
+                    <Image Source="{Binding DescriptionImage}" Stretch="Uniform" Width="275" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,60,130,0"/>
+                    <local:CoverShow x:Name="coverShow" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,40,0,0"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,60,135">
+                        <local:Tile Margin="10,0" Click="styleDetailOK">
+                            <Image Source="/Assets/ButtonOK.png" Stretch="Uniform" Width="150"/>
                         </local:Tile>
-                        <local:Tile Margin="10,0" Click="editorCancel_Click">
-                            <Image Source="/Assets/ButtonCancel.png" Stretch="Uniform" Width="120"/>
+                        <local:Tile Margin="10,0" Click="styleDetailCancel">
+                            <Image Source="/Assets/ButtonCancel.png" Stretch="Uniform" Width="150"/>
                         </local:Tile>
                     </StackPanel>
                 </Grid>
 
-            </Grid>
+                <!--style list-->
+                <Grid x:Name="styleListPanel" IsHitTestVisible="False" Opacity="0">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="400"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
 
-            <!--style detail-->
-            <Grid x:Name="styleDetailPanel" Opacity="0" IsHitTestVisible="False">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="400"/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-                <Grid Background="#80000000" HorizontalAlignment="Right" Width="400" Margin="0,50,50,190">
-                    <TextBlock Text="{Binding Description}" Style="{StaticResource ItemDescriptionStyle}"/>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,150,0,0">
+                        <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="1" Margin="10,0">
+                            <Grid Width="220" >
+                                <Image Source="/Assets/StyleThumbnail01.png" Stretch="Uniform"/>
+                                <!--<TextBlock Text="地中海式风格" Style="{StaticResource StyleListItemTitleStyle}"/>-->
+                            </Grid>
+                        </local:Tile>
+
+                        <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="2" Margin="10,0">
+                            <Grid Width="220" >
+                                <Image Source="/Assets/StyleThumbnail02.png" Stretch="Uniform"/>
+                                <!--<TextBlock Text="法式风格" Style="{StaticResource StyleListItemTitleStyle}"/>-->
+                            </Grid>
+                        </local:Tile>
+
+                        <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="3" Margin="10,0">
+                            <Grid Width="220" >
+                                <Image Source="/Assets/StyleThumbnail03.png" Stretch="Uniform"/>
+                                <!--<TextBlock Text="现代风格" Style="{StaticResource StyleListItemTitleStyle}"/>-->
+                            </Grid>
+                        </local:Tile>
+
+                        <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="4" Margin="10,0">
+                            <Grid Width="220" >
+                                <Image Source="/Assets/StyleThumbnail04.png" Stretch="Uniform"/>
+                                <!--<TextBlock Text="新古典风格" Style="{StaticResource StyleListItemTitleStyle}"/>-->
+                            </Grid>
+                        </local:Tile>
+
+                        <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="5" Margin="10,0">
+                            <Grid Width="220" >
+                                <Image Source="/Assets/StyleThumbnail05.png" Stretch="Uniform"/>
+                                <!--<TextBlock Text="新亚洲风格" Style="{StaticResource StyleListItemTitleStyle}"/>-->
+                            </Grid>
+                        </local:Tile>
+                    </StackPanel>
+
                 </Grid>
-                <local:CoverShow x:Name="coverShow" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,40,0,0"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,40">
-                    <!--
-                    <Button Grid.Column="1" Content="确定" Style="{StaticResource CommonButtonStyle}" Click="styleDetailOK"/>
-                    <Button Grid.Column="0" Content="返回" Style="{StaticResource CommonButtonStyle}" Click="styleDetailCancel"/>
-                    -->
-                    <local:Tile Margin="10,0" Click="styleDetailOK">
-                        <Image Source="/Assets/ButtonOK.png" Stretch="Uniform" Width="120"/>
-                    </local:Tile>
-                    <local:Tile Margin="10,0" Click="styleDetailCancel">
-                        <Image Source="/Assets/ButtonCancel.png" Stretch="Uniform" Width="120"/>
-                    </local:Tile>
-                </StackPanel>
-            </Grid>
 
-            <!--style list-->
-            <Grid x:Name="styleListPanel" IsHitTestVisible="False" Opacity="0">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="400"/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
+                <!--splash-->
+                <Grid x:Name="splashPanel" Opacity="0" IsHitTestVisible="False">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform X="400"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Image Source="/Assets/SplashText.png" Stretch="Uniform" Width="900"/>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,120,0,0">
-                    <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="1" Margin="10,0">
-                        <Grid Width="220" >
-                            <Image Source="/Assets/StyleThumbnail01.png" Stretch="Uniform"/>
-                            <TextBlock Text="地中海式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
+                    <!--<TextBlock x:Name="splashTextBlock" Style="{StaticResource SplashTextStyle}">
+                    <Run Text="afddsafafs &#x0a;" FontSize="32"/>
+                    <Run Text="afddsafafs" FontSize="28"/>
+                    </TextBlock>-->
+            
+                    <local:Tile x:Name="splashGoButton" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" Click="SplashGo_Click" IsHitTestVisible="False">
+                        <Grid Background="#00000000" Width="160" Height="320" >
+                            <Image Source="/Assets/SplashGoButton.png" Stretch="Uniform"/>
                         </Grid>
                     </local:Tile>
 
-                    <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="2" Margin="10,0">
-                        <Grid Width="220" >
-                            <Image Source="/Assets/StyleThumbnail02.png" Stretch="Uniform"/>
-                            <TextBlock Text="法式风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                        </Grid>
-                    </local:Tile>
+                </Grid>
 
-                    <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="3" Margin="10,0">
-                        <Grid Width="220" >
-                            <Image Source="/Assets/StyleThumbnail03.png" Stretch="Uniform"/>
-                            <TextBlock Text="现代风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                        </Grid>
-                    </local:Tile>
-
-                    <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="4" Margin="10,0">
-                        <Grid Width="220" >
-                            <Image Source="/Assets/StyleThumbnail04.png" Stretch="Uniform"/>
-                            <TextBlock Text="新古典风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                        </Grid>
-                    </local:Tile>
-
-                    <local:Tile HorizontalAlignment="Left" VerticalAlignment="Top" Click="StyleListItem_Click" Tag="5" Margin="10,0">
-                        <Grid Width="220" >
-                            <Image Source="/Assets/StyleThumbnail05.png" Stretch="Uniform"/>
-                            <TextBlock Text="新亚洲风格" Style="{StaticResource StyleListItemTitleStyle}"/>
-                        </Grid>
-                    </local:Tile>
-                </StackPanel>
 
             </Grid>
+        </Viewbox>
 
-            <!--splash-->
-            <Grid x:Name="splashPanel" Opacity="0" IsHitTestVisible="False">
-                <Grid.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="400"/>
-                    </TransformGroup>
-                </Grid.RenderTransform>
-                <!--<TextBlock x:Name="splashTextBlock" Style="{StaticResource SplashTextStyle}">
-                <Run Text="afddsafafs &#x0a;" FontSize="32"/>
-                <Run Text="afddsafafs" FontSize="28"/>
-            </TextBlock>-->
-            </Grid>
-        </Grid>
-
-        <local:Tile x:Name="splashGoButton" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,30,40,0" Click="SplashGo_Click" IsHitTestVisible="False">
-            <Grid Background="#00000000" Width="160" Height="320" >
-                <Image Source="/Assets/SplashGoButton.png" Stretch="Uniform"/>
-            </Grid>
-        </local:Tile>
 
     </Grid>
 

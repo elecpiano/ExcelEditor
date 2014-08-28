@@ -6,6 +6,7 @@ namespace ExcelEditor
         public string ID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string DescriptionImage { get; set; }
         public string[] Images { get; set; }
     }
 
